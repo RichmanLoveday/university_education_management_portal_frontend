@@ -17,7 +17,13 @@ const result = ref(null)
 const loading = ref(false)
 const error = ref('')
 
-const TRACKED_FIELDS = ['ca_score', 'exam_score', 'total_score', 'grade', 'status']
+const TRACKED_FIELDS = {
+  ca_score: 'CA score',
+  exam_score: 'Exam score',
+  total_score: 'Total',
+  grade: 'Grade',
+  status: 'Status',
+}
 
 watch(
   () => props.resultId,
@@ -38,13 +44,13 @@ watch(
 )
 
 function changes(audit) {
-  return TRACKED_FIELDS.filter((field) => audit.old_values?.[field] !== audit.new_values?.[field] && audit.new_values?.[field] !== undefined).map(
-    (field) => ({
-      field: field.replace('_', ' '),
+  return Object.entries(TRACKED_FIELDS)
+    .filter(([field]) => audit.old_values?.[field] !== audit.new_values?.[field] && audit.new_values?.[field] !== undefined)
+    .map(([field, label]) => ({
+      field: label,
       from: audit.old_values?.[field] ?? '—',
       to: audit.new_values?.[field] ?? '—',
-    }),
-  )
+    }))
 }
 </script>
 
@@ -115,7 +121,7 @@ function changes(audit) {
             <p v-if="audit.comment" class="mt-1 text-sm text-slate-600">“{{ audit.comment }}”</p>
             <ul v-if="changes(audit).length" class="mt-1 space-y-0.5 text-xs text-slate-500">
               <li v-for="change in changes(audit)" :key="change.field">
-                <span class="capitalize">{{ change.field }}</span>: {{ change.from }} → <span class="text-slate-700">{{ change.to }}</span>
+                {{ change.field }}: {{ change.from }} → <span class="text-slate-700">{{ change.to }}</span>
               </li>
             </ul>
           </li>
