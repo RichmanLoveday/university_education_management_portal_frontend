@@ -76,5 +76,9 @@
   .print-area {
     box-shadow: none !important;
     border: none !important;
+    padding: 0 !important;
+  }
+  .print-area .overflow-x-auto {
+    overflow: visible;
   }
 }

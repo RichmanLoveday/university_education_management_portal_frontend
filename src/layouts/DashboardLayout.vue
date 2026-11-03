@@ -102,7 +102,7 @@ async function signOut(allDevices = false) {
       </nav>
     </aside>
 
-    <div class="lg:pl-64">
+    <div class="lg:pl-64 print:pl-0">
       <header
         class="no-print sticky top-0 z-20 flex h-16 items-center justify-between gap-4 border-b border-slate-200 bg-white/90 px-4 backdrop-blur sm:px-6"
       >
@@ -147,7 +147,7 @@ async function signOut(allDevices = false) {
         </div>
       </header>
 
-      <main class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-8">
+      <main class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-8 print:max-w-none print:p-0">
         <RouterView />
       </main>
     </div>
