@@ -3,6 +3,15 @@ import { ACADEMIC_LEVELS, SEMESTER_NUMBERS, levelLabel, semesterLabel } from './
 // Field and column definitions shared by the Department Admin and Super Admin screens.
 // Pass `departments` to add the department selector the Super Admin needs.
 
+export const ACTIVE_FILTER = {
+  key: 'is_active',
+  placeholder: 'All statuses',
+  options: [
+    { value: 1, label: 'Active' },
+    { value: 0, label: 'Inactive' },
+  ],
+}
+
 export const programColumns = [
   { key: 'code', label: 'Code', class: 'whitespace-nowrap font-medium' },
   { key: 'name', label: 'Program' },

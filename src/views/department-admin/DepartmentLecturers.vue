@@ -2,6 +2,7 @@
 import { departmentAdminApi } from '@/api'
 import ResourceManager from '@/components/ResourceManager.vue'
 import StatusBadge from '@/components/ui/StatusBadge.vue'
+import { ACTIVE_FILTER } from '@/utils/forms'
 
 const columns = [
   { key: 'staff_id', label: 'Staff ID', class: 'whitespace-nowrap font-medium' },
@@ -14,14 +15,7 @@ const columns = [
 
 const filters = [
   { key: 'search', type: 'search', placeholder: 'Search name, email or staff ID' },
-  {
-    key: 'is_active',
-    placeholder: 'All statuses',
-    options: [
-      { value: 1, label: 'Active' },
-      { value: 0, label: 'Inactive' },
-    ],
-  },
+  ACTIVE_FILTER,
 ]
 
 function fields(mode) {
