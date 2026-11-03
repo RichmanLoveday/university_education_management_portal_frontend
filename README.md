@@ -44,10 +44,19 @@ so no CORS configuration is needed.
 npm run build
 ```
 
-Set `VITE_API_BASE_URL` to the API origin (for example `https://api.example.com`) before building when the API is on a
-different domain. The output in `dist/` is a static SPA: configure the host to serve `index.html` for unknown paths
-(history-mode routing). Set `VITE_SHOW_DEMO_ACCOUNTS=true` to show the demo-account shortcuts on the login page in a
-production build.
+Production builds read `.env.production`, which points `VITE_API_BASE_URL` at the deployed API
+(`https://universityeducationmanagementportalbackend-production.up.railway.app`) and shows the demo-account shortcuts.
+The output in `dist/` is a static SPA.
+
+### Deploying to Vercel
+
+`vercel.json` configures the Vite build and rewrites every path to `index.html` so deep links and page refreshes work
+with history-mode routing. Import the GitHub repository in the Vercel dashboard (no extra settings needed), or deploy
+from the CLI:
+
+```bash
+npx vercel --prod
+```
 
 ### Environment variables
 
