@@ -4,7 +4,6 @@ defineProps({
   size: { type: [Number, String], default: 20 },
 })
 
-// Outline icon paths (24x24, stroke based)
 const paths = {
   home: 'M3 10.5 12 3l9 7.5M5 9v11h5v-6h4v6h5V9',
   user: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 9a7 7 0 0 1 14 0',
