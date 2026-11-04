@@ -9,7 +9,7 @@ export const ROLE_LABELS = {
   student: 'Student',
   lecturer: 'Lecturer',
   department_admin: 'Department Admin',
-  super_admin: 'Super Admin',
+  // super_admin: 'Super Admin',
 }
 
 export const ROLE_HOME = {
